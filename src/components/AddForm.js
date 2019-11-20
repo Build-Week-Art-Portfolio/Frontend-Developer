@@ -19,11 +19,11 @@ class AddForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    axios.post(``, this.state.art)
+    axios.post(`https://als-artportfolio.herokuapp.com/art/art`, this.state.art)
       .then(res => {
         this.props.setArt(res.data)
         this.setState({ art: emptyForm })
-        this.props.history.push(`/`)
+        this.props.history.push(`/profile-page`)
       })
       .catch(err => console.log(err))
   }

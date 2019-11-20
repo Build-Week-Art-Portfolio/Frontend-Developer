@@ -81,6 +81,15 @@ function App() {
         />
          
         <Route exact path="/photo-data/:id" component={GalleryCard} />
+
+        <Route
+        exact
+        path="/AddForm"
+        render={props => {
+          {
+            return <AddForm />;
+          }
+        }} />
       </div>
     </Router>
   );
