@@ -12,7 +12,7 @@ import GalleryCard from "./components/Gallery/GalleryCard";
 import CardDetails from "./components/Gallery/CardDetails";
 
 
-function App() {
+export default function App() {
   const [userPhotos, setUserPhotos] = useState([
 //     {
 //       id: 1,
@@ -102,5 +102,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;
