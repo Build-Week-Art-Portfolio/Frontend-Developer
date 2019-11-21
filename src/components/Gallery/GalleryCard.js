@@ -1,9 +1,8 @@
 import React from "react";
 import axios from 'axios';
 
-const deleteArt = props => {
-  props.preventDefault();
-  axios.delete(`https://als-artportfolio.herokuapp.com/art/arts/${props.artid}`)
+const deleteArt = artid => {
+  axios.delete(`https://als-artportfolio.herokuapp.com/art/art/${artid}`)
   .then(response => {
       console.log(response);
   })
@@ -13,8 +12,7 @@ const deleteArt = props => {
 }
 
 const GalleryCard = props => {
-  console.log(props)
-  // console.log(props.image)
+  console.log("these are this card's props", props.artid)
   return (
     <div className="user-card">
       <div className="user-head">
@@ -28,7 +26,7 @@ const GalleryCard = props => {
       <div className="user-img">
         <img src={props.userImage} alt="random image" />
       </div>
-      <button onClick={deleteArt}>Delete</button>
+      <button onClick={() => deleteArt(props.artid)}>Delete</button>
     </div>
   );
 };

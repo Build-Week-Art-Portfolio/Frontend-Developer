@@ -43,6 +43,7 @@ const GalleryList = (props) => {
                   userImage={photo.imageurl}
                   title={photo.title}
                   description={photo.description}
+                  artid={photo.artid}
                 />
               )
             }
@@ -72,6 +73,7 @@ const GalleryList = (props) => {
                   userImage={photo.imageurl}
                   title={photo.title}
                   description={photo.description}
+                  artid={photo.artid}
                 />
               </Link>
               )

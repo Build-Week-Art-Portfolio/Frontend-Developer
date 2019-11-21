@@ -65,7 +65,7 @@ export default function App() {
             return <AddForm />;
           }
         }} />
-        <Link to="/user-list">Gallery</Link>
+        <Link to="/">Gallery</Link>
         <Link to="/">Login</Link>
 
         <Route exact path="/user-list" component={GalleryList} />
