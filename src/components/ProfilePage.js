@@ -154,12 +154,12 @@ const ProfilePage = (props) => {
             <input name='location' value={editProfile.location} style={editing ? {'display': 'inline-block'} : {'display': 'none'}} onChange={updateEdit}></input><br />
             <button onClick={addArt}>Add Art</button><br />
             <p>Your posts:</p>
-            {profileData.arts.map(post => (
+            {profileData.arts.map(art => (
                 <div>
-                    <h2>{post.title}</h2>
-                    <img src={post.img} style={{'width': '200px', 'height':'auto'}}></img>
-                    <p>Posted on: {post.postdate}</p>
-                    <p>Description: {post.description}</p>
+                    <h2>{art.title}</h2>
+                    <img src={art.imageurl} style={{'width': '200px', 'height':'auto'}}></img>
+                    <p>Posted on: {art.posteddate}</p>
+                    <p>Description: {art.description}</p>
                 </div>
             ))}
             <button onClick={LogOut}>Log Out</button>

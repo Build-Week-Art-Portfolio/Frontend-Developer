@@ -10,49 +10,12 @@ import Register from "./components/Register";
 import GalleryList from "./components/Gallery/GalleryList";
 import CardDetails from './components/Gallery/CardDetails';
 import GalleryCard from "./components/Gallery/GalleryCard";
-import Header from "./components/gallery/Header.js";
-import CharacterList from "./components/gallery/CharacterList";
-import Card from "./components/gallery/Card";
+import Header from "./components/Gallery/Header.js";
+import CharacterList from "./components/Gallery/CharacterList";
+import Card from "./components/Gallery/Card";
 
 export default function App() {
-  const [userPhotos, setUserPhotos] = useState([
-//     {
-//       id: 1,
-//       name: "Harry Potter",
-//       avatar:
-//         "https://fsmedia.imgix.net/43/e6/c3/51/cc03/4242/af6a/479124d85903/screen-shot-2019-02-19-at-40014-pmpng.png?auto=compress&h=1200&w=1200&crop=edges&fit=crop",
-//       image:
-//         "https://images.unsplash.com/photo-1573853818293-0a47b8cd95de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1047&q=80",
-//       likes: "123"
-//     },
-//     {
-//       id: 2,
-//       name: "Jerry Potter",
-//       avatar:
-//         "https://fsmedia.imgix.net/43/e6/c3/51/cc03/4242/af6a/479124d85903/screen-shot-2019-02-19-at-40014-pmpng.png?auto=compress&h=1200&w=1200&crop=edges&fit=crop",
-//       image:
-//         "https://images.unsplash.com/photo-1573853818293-0a47b8cd95de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1047&q=80",
-//       likes: "123"
-//     },
-//     {
-//       id: 3,
-//       name: "Larry Potter",
-//       avatar:
-//         "https://fsmedia.imgix.net/43/e6/c3/51/cc03/4242/af6a/479124d85903/screen-shot-2019-02-19-at-40014-pmpng.png?auto=compress&h=1200&w=1200&crop=edges&fit=crop",
-//       image:
-//         "https://images.unsplash.com/photo-1573853818293-0a47b8cd95de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1047&q=80",
-//       likes: "123"
-//     },
-//     {
-//       id: 4,
-//       name: "Larry Potter",
-//       avatar:
-//         "https://fsmedia.imgix.net/43/e6/c3/51/cc03/4242/af6a/479124d85903/screen-shot-2019-02-19-at-40014-pmpng.png?auto=compress&h=1200&w=1200&crop=edges&fit=crop",
-//       image:
-//         "https://images.unsplash.com/photo-1573853818293-0a47b8cd95de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1047&q=80",
-//       likes: "123"
-//     }
-  ]);
+  const [userPhotos, setUserPhotos] = useState([]);
 
   useEffect(() => {
     axios.get("https://als-artportfolio.herokuapp.com/art/arts")
