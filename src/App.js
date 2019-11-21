@@ -12,12 +12,12 @@ import Register from "./components/Register";
 import GalleryList from "./components/Gallery/GalleryList";
 import CardDetails from './components/Gallery/CardDetails';
     
-import Header from "./components/gallery/Header.js";
-import CharacterList from "./components/gallery/CharacterList";
-import Card from "./components/gallery/Card";
+import Header from "./components/Gallery/Header.js";
+import CharacterList from "./components/Gallery/CharacterList";
+import Card from "./components/Gallery/Card";
 
 
-function App() {
+export default function App() {
 
   return (
     <Router>
