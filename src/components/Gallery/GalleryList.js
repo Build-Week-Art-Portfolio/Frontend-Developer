@@ -3,7 +3,19 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import GalleryCard from "./GalleryCard";
 
+// const galleryGet = () => {
+//   axios.get("https://als-artportfolio.herokuapp.com/art/arts")
+//   .then(response => {
+//     console.log(response)
+//   })
+// }
+
 const GalleryList = props => {
+
+  // useEffect(() => {
+  //   galleryGet();
+  // },[])
+console.log(props)
   return (
     <div className="user-container">
       {props.userPhotos.map(user => {
@@ -22,5 +34,6 @@ const GalleryList = props => {
     </div>
   );
 };
+
 
 export default GalleryList;

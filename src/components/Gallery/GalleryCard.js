@@ -1,6 +1,7 @@
 import React from "react";
 
 const GalleryCard = props => {
+  console.log(props)
   return (
     <div className="user-card">
       <div className="user-head">
