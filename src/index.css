@@ -1,57 +1,63 @@
 body {
   margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-main {
-  width: 85vw;
-  min-height: 80vh;
-  max-width: 1024px;
-  margin: 35px auto;
-  background: #fff;
-  padding: 15px;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
-.grid-view {
+.addFormStyles {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-.page-view {
-  min-height: 40vh;
-}
-
-.grid-view div.card.ui {
-  margin: 1.25rem;
-}
-/*
-.main-img {
-  display: block;
-  border-radius: 100%;
-  margin: 0 auto;
-} */
-
-header h1 {
+  flex-direction: column;
   text-align: center;
 }
-.characterCard {
-  text-align: center;
-  margin: 5%;
-  width: 30%;
+
+.titleStyles {
+  border: none;
+  background: rgb(241, 241, 241);
+  width: 500px;
+  height: 50px;
+  font-size: 1.5rem;
+  font-style: bold;
 }
 
-.search {
-  margin-left: 30%;
+.postButton {
+  text-align: center;
+  margin: 25px 0;
+  width: 75px;
+  height: 25px;
+  border: 1px solid rgb(241, 241, 241);
+  font-size: 0.8rem;
 }
-.grid {
-  margin-left: 36%;
+
+.postButton:hover {
+  font-size: 1.0rem;
+  border: none;
+  background: rgb(241, 241, 241);
+  transition: 1s;
 }
-.column {
-  margin-left: 4%;
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
-.card {
-  padding-left: 30%;
+
+.login-form label {
+  font-size: 1.25rem;
+  margin: 0 15px;
+}
+
+.input-div {
+  margin: 15px 0;
+}
+
+.home-page h1 {
+  text-align: center;
 }
