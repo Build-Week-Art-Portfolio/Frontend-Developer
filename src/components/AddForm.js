@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import {connect} from 'react-redux';
 
-const emptyForm = { title: '', artist: '' }
+const emptyForm = {  }
 
 class AddForm extends React.Component {
   state = {
@@ -15,24 +16,47 @@ class AddForm extends React.Component {
         [e.target.name]: e.target.value
       }
     })
+  };
+
+  componentDidMount() {
+    console.log('this is props', this.props);
   }
 
-  handleSubmit = e => {
+  addArt = e => {
     e.preventDefault();
-    axios.post(``, this.state.art)
+
+    const newPost = {
+        // ...this.state, 
+        // art: {
+            ...this.state.art, 
+            postdate: Date.now().toString(),
+            user: {userid: this.props.userID}
+        
+    }
+    console.log(newPost)
+    console.log(Date.now().toString())
+    axios
+      .post(`https://als-artportfolio.herokuapp.com/art/art`, newPost)
       .then(res => {
-        this.props.setArt(res.data)
-        this.setState({ art: emptyForm })
-        this.props.history.push(`/`)
+        this.setState({ posts: res.data });
+        console.log(res);
+        this.props.history.push(`/`);
       })
-      .catch(err => console.log(err))
-  }
+      .catch(err => {
+        console.log(err);
+      });
+    this.setState({
+      picture: "",
+      description: "",
+      selectedfile: null
+    });
+  };
 
   render() {
     return (
       <div className="addFormStyles">
         <h2>Post Your Art!</h2>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.addArt}>
           <h4>Title: </h4>
           <input className="titleStyles"
             type="text"
@@ -41,19 +65,49 @@ class AddForm extends React.Component {
             onChange={this.handleChange}
             required
           />
-          <h4>Artist: </h4>          
+          {/* <h4>Artist: </h4>          
           <input className="titleStyles"
             type="text"
-            name="artist"
-            value={this.state.art.artist}
+            name="user"
+            value={this.state.art.user}
+            onChange={this.handleChange}
+            required
+          /><br /> */}
+          <h4>Describe Your Art: </h4>          
+          <input className="titleStyles"
+            type="text"
+            name="description"
+            value={this.state.art.description}
             onChange={this.handleChange}
             required
           /><br />
-          <button className="postButton">Post</button>
+          <h4>Medium: </h4>          
+          <input className="titleStyles"
+            type="text"
+            name="arttype"
+            value={this.state.art.arttype}
+            onChange={this.handleChange}
+            required
+          /><br />
+            <h4>URL For Your Art: </h4>          
+          <input className="titleStyles"
+            type="text"
+            name="imageurl"
+            value={this.state.art.imageurl}
+            onChange={this.handleChange}
+            required
+          /><br />
+          <button type="submit" className="postButton">Post</button>
         </form>
       </div>
     )
   }
 }
 
-export default AddForm; 
+const mapStateToProps = state => ({
+    userID: state.userID,
+});
+
+export default connect(
+    mapStateToProps,
+)(AddForm); 

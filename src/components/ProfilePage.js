@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "./axiosWithAuth";
 import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
+import AddForm from './AddForm';
 
 const defaultProfile = {
     firstname: "",
@@ -129,6 +130,11 @@ const ProfilePage = (props) => {
         })
     }
 
+    const addArt = e => {
+        e.preventDefault();
+        props.history.push("AddForm");
+    }
+
     return (
         <div className="profile-div" style={{'textAlign':'center'}}>
             <button onClick={() => editMode()}>{!editing ? 'Edit Profile' : 'Submit Edits'}</button>
@@ -146,7 +152,7 @@ const ProfilePage = (props) => {
             <input name='age' value={editProfile.age} style={editing ? {'display': 'inline-block'} : {'display': 'none'}} onChange={updateEdit}></input><br />
             <p>{profileData.location ? `Location: ${profileData.location}` : "Location: N/A"}</p>
             <input name='location' value={editProfile.location} style={editing ? {'display': 'inline-block'} : {'display': 'none'}} onChange={updateEdit}></input><br />
-            <button>Add Art</button><br />
+            <button onClick={addArt}>Add Art</button><br />
             <p>Your posts:</p>
             {profileData.arts.map(art => (
                 <div>

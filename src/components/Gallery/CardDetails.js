@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import GalleryCard from "./GalleryCard";
+import GalleryList from "./GalleryList";
+import axios from "axios";
 
 
 const CardDetails = props => {

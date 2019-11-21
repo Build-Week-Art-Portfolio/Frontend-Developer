@@ -89,7 +89,7 @@ const Login = (props) => {
                 </div>
                 <button onClick={login} className="postButton">Log in</button>
                 <p>Don't have an account?</p>
-                <button onClick={goToSignUp}>Create Account</button>
+                <button onClick={goToSignUp} className="postButton">Create Account</button>
             </form>
         </div>
     </div>
