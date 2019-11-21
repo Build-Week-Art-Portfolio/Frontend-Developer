@@ -158,7 +158,7 @@ const ProfilePage = (props) => {
                 <div>
                     <h2>{post.title}</h2>
                     <img src={post.img} style={{'width': '200px', 'height':'auto'}}></img>
-                    <p>Posted on: {post.date}</p>
+                    <p>Posted on: {post.postdate}</p>
                     <p>Description: {post.description}</p>
                 </div>
             ))}

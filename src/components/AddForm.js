@@ -29,11 +29,12 @@ class AddForm extends React.Component {
         // ...this.state, 
         // art: {
             ...this.state.art, 
-            postdate: Date.now(),
-            user: Number(this.props.userID)
+            postdate: Date.now().toString(),
+            user: {userid: this.props.userID}
         
     }
     console.log(newPost)
+    console.log(Date.now().toString())
     axios
       .post(`https://als-artportfolio.herokuapp.com/art/art`, newPost)
       .then(res => {
