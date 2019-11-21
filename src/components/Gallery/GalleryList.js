@@ -20,12 +20,13 @@ console.log(props)
     <div className="user-container">
       {props.userPhotos.map(user => {
         return (
-          <Link to={`/photo-data/${user.id}`}>
+          <Link to={`/photo-data/${user.artid}`}>
             <GalleryCard
-              key={user.id}
+              key={user.artid}
               name={user.name}
               avatar={user.avatar}
-              image={user.image}
+              image={user.imageurl}
+              title={user.title}
               likes={user.likes}
             />
           </Link>

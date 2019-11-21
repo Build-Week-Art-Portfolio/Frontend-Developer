@@ -29,11 +29,11 @@ class AddForm extends React.Component {
     }
     console.log(newPost)
     axios
-      .post("https://als-artportfolio.herokuapp.com/art/art", newPost)
+      .post(`https://als-artportfolio.herokuapp.com/art/art`, newPost)
       .then(res => {
         this.setState({ posts: res.data });
         console.log(res);
-        this.props.history.push('/');
+        this.props.history.push(`/`);
       })
       .catch(err => {
         console.log(err);
