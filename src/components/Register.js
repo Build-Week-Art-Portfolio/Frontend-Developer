@@ -56,74 +56,74 @@ const Register = (props) => {
     return (
     <div className="home-page">
         <h1>Please Register Below:</h1>
-        <div className="registration-form">
-            <form>
-                <div className="input-div">
+        <div className="addFormStyles">
+            <form className="regFormStyles">
+                <div>
                     <label htmlFor="username">Username:</label>
-                    <input
+                    <input className="titleStyles"
                         type="text"
                         name="username"
                         value={credentials.username}
                         onChange={handleChange}
                     />
                 </div>
-                <div className="input-div">
+                <div>
                     <label htmlFor="password">Password:</label>
-                    <input
+                    <input className="titleStyles2"
                         type="password"
                         name="password"
                         value={credentials.password}
                         onChange={handleChange}
                     />
                 </div>
-                <div className="input-div">
+                <div>
                     <label htmlFor="primaryemail">Email:</label>
-                    <input
+                    <input className="titleStyles"
                         type="email"
                         name="primaryemail"
                         value={credentials.primaryemail}
                         onChange={handleChange}
                     />
                 </div>
-                <div className="input-div">
+                <div>
                     <label htmlFor="firstname">First Name:</label>
-                    <input
+                    <input className="titleStyles2"
                         type="text"
                         name="firstname"
                         value={credentials.firstname}
                         onChange={handleChange}
                     />
                 </div>
-                <div className="input-div">
+                <div>
                     <label htmlFor="lastname">Last Name:</label>
-                    <input
+                    <input className="titleStyles"
                         type="text"
                         name="lastname"
                         value={credentials.lastname}
                         onChange={handleChange}
                     />
                 </div>
-                <div className="input-div">
+                <div>
                     <label htmlFor="age">Age:</label>
-                    <input
+                    <input className="titleStyles2"
                         type="text"
                         name="age"
                         value={credentials.age}
                         onChange={handleChange}
                     />
                 </div>
-                <div className="input-div">
+                <div>
                     <label htmlFor="location">Location:</label>
-                    <input
+                    <input className="titleStyles"
                         type="text"
                         name="location"
                         value={credentials.location}
                         onChange={handleChange}
                     />
                 </div>
-                <div className="input-div">
+                <div>
                     <label htmlFor="profilepicture">Profile Picture:</label>
-                    <input
+                    <input className="titleStyles2"
                         type="text"
                         name="profilepicture"
                         value={credentials.profilepicture}
@@ -131,9 +131,9 @@ const Register = (props) => {
                     />
                 </div>
                 <br />
-                <button onClick={register}>Register</button>
+                <button onClick={register} className="postButton">Register</button>
                 <p>Already have an account?</p>
-                <button onClick={goToLogin}>Click here to login</button>
+                <button onClick={goToLogin} className="postButton">Click here to login</button>
             </form>
         </div>
     </div>
