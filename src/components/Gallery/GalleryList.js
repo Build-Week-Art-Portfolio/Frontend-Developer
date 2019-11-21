@@ -5,19 +5,23 @@ import GalleryCard from "./GalleryCard";
 
 const GalleryList = () => {
   console.log("Gallery List is displaying")
-  
+
   const [users, setUsers] = useState([]);
+
   useEffect(() => {
+    console.log("axios call is going out on mount")
     axios
       .get("http://als-artportfolio.herokuapp.com/users/users")
       .then(response => {
-        setUsers(response.data);
         console.log("data received", response.data);
+        setUsers(response.data);
       })
       .catch(error => {
         console.error("no data received", error);
       });
   }, []);
+
+  console.log("useEffect has finished")
 
     return (
       <div className="user-container">
