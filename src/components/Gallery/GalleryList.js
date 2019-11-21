@@ -10,10 +10,10 @@ const GalleryList = () => {
       .get("http://als-artportfolio.herokuapp.com/users/users")
       .then(response => {
         setUsers(response.data);
-        console.log(response.data, "data");
+        console.log("data received", response.data);
       })
       .catch(error => {
-        console.error("Server Error", error);
+        console.error("no data received", error);
       });
   }, []);
 
