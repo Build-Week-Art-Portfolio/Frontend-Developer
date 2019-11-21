@@ -2,8 +2,8 @@ import React from "react";
 import axios from 'axios';
 
 const deleteArt = props => {
-  props.preventBubble();
-  axios.delete(`https://als-artportfolio.herokuapp.com/art/art/${props.artid}`)
+  props.preventDefault();
+  axios.delete(`https://als-artportfolio.herokuapp.com/art/arts/${props.artid}`)
   .then(response => {
       console.log(response);
   })
@@ -25,10 +25,11 @@ const GalleryCard = props => {
         <img src={props.image} />
         <h2>{props.title}</h2>
         <p>
-          <i class="fas fa-heart"></i>123
+          {/* <i class="fas fa-heart"></i>123 */}
         </p>
-        <button onSubmit={deleteArt}>Delete</button>
+        
       </div>
+      <button onClick={deleteArt}>Delete</button>
     </div>
   );
 };

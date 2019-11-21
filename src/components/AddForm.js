@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {connect} from 'react-redux';
 
 const emptyForm = {  }
 
@@ -15,16 +16,21 @@ class AddForm extends React.Component {
         [e.target.name]: e.target.value
       }
     })
+  };
+
+  componentDidMount() {
+    console.log('this is props', this.props);
   }
 
   addArt = e => {
     e.preventDefault();
+
     const newPost = {
         // ...this.state, 
         // art: {
             ...this.state.art, 
             postdate: Date.now(),
-            // user: {userid: 1 }
+            user: Number(this.props.userID)
         
     }
     console.log(newPost)
@@ -97,4 +103,10 @@ class AddForm extends React.Component {
   }
 }
 
-export default AddForm; 
+const mapStateToProps = state => ({
+    userID: state.userID,
+});
+
+export default connect(
+    mapStateToProps,
+)(AddForm); 
