@@ -5,7 +5,7 @@ const CardDetails = props => {
   console.log(props.location, "props")
   const { firstName, lastName, profilePic, userImage, title, description} = props.location.state;
   return (
-    <div className="photo-card">
+    <div className="photo-container">
       <div className="photo-head">
         <img className="user-avatar" src={profilePic} />
         <h2>{title}</h2>
