@@ -1,4 +1,16 @@
 import React from "react";
+import axios from 'axios';
+
+const deleteArt = props => {
+  props.preventBubble();
+  axios.delete(`https://als-artportfolio.herokuapp.com/art/art/${props.artid}`)
+  .then(response => {
+      console.log(response);
+  })
+  .catch(error => {
+      console.log(error);
+  })
+}
 
 const GalleryCard = props => {
   console.log(props)
@@ -15,6 +27,7 @@ const GalleryCard = props => {
         <p>
           <i class="fas fa-heart"></i>123
         </p>
+        <button onSubmit={deleteArt}>Delete</button>
       </div>
     </div>
   );

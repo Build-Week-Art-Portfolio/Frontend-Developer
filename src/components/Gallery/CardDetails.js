@@ -3,16 +3,6 @@ import GalleryCard from "./GalleryCard";
 import GalleryList from "./GalleryList";
 import axios from "axios";
 
-// const deleteArt = props => {
-//   axios.delete(`https://als-artportfolio.herokuapp.com/art/art/${props.artid}`)
-//   .then(response => {
-//       console.log(response);
-//   })
-//   .catch(error => {
-//       console.log(error);
-//   })
-// }
-
 const CardDetails = props => {
   const [cardInfo, setCardInfo] = useState([]);
 
@@ -29,22 +19,50 @@ const CardDetails = props => {
   // console.log(props.match.params.id);
   // console.log(props.match.params.title);
   console.log(GalleryCard, {...props});
+  console.log(props);
+  let card;
+  if (typeof props.match.params.id === 'string') {
+
+   card = props.userPhotos.filter(card => {
+    console.log(card.artid)
+    console.log(props.match.params.id) 
+    return (`${card.artid}` === props.match.params.id)
+
+  })
+  }
+  console.log(card);
+  let component; 
+
+  if (!Array.isArray(card) || card.length === 0 ) {
+    component = props.userPhotos.map(user => {
+      return (
+          <GalleryCard
+            // key={user.artid}
+            // name={user.name}
+            // avatar={user.avatar}
+            image={user.imageurl}
+            title={user.title}
+            // likes={user.likes}
+            
+          />
+      );
+      })   
+  } else {
+    component = <GalleryCard
+    // key={user.artid}
+    // name={user.name}
+    // avatar={user.avatar}
+    image={card[0].imageurl}
+    title={card[0].title}
+    // likes={user.likes}
+    />
+  }
+
+console.log(card);
 
   return (
   <div>
-    <h1>this is hard coded</h1>
-    {props.userPhotos.map(user => {
-        return (
-            <GalleryCard
-              // key={user.artid}
-              // name={user.name}
-              // avatar={user.avatar}
-              image={user.imageurl}
-              title={user.title}
-              // likes={user.likes}
-            />
-        );
-      })}
+    {component}
   </div>
   )
 };
