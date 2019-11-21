@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Login from "./components/Login";
-import ProfilePage from "./components/ProfilePage.js";
-import PrivateRoute from "./components/PrivateRoute";
+import ProfilePage from './components/ProfilePage.js';
+import PrivateRoute from './components/PrivateRoute';
+import AddForm from "./components/AddForm";
 import Register from "./components/Register";
 
 import GalleryList from "./components/Gallery/GalleryList";

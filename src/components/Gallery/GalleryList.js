@@ -11,7 +11,6 @@ const GalleryList = () => {
       .then(response => {
         setUsers(response.data);
         
-        
       })
       .catch(error => {
         console.error("Server Error", error);
