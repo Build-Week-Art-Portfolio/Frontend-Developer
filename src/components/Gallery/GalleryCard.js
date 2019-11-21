@@ -6,8 +6,10 @@ const GalleryCard = props => {
     <div className="user-card">
       <div className="user-head">
         <img className="user-avatar" src={props.profilePic} />
-        <p>{props.firstName}</p>
-        <p>{props.lastName}</p>
+        <div className="user-name">
+          <p>{props.firstName}</p>
+          <p>{props.lastName}</p>
+        </div>
       </div>
       <h3>{props.title}</h3>
       <div className="user-img">
