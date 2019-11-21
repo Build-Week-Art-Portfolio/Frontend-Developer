@@ -24,42 +24,99 @@ const GalleryList = (props) => {
       });
   }, []);
 
-  console.log("useEffect has finished")
+    if (props.userPhotos === []) {
+      return(
+        <div>Loading</div>
+      )
+    } else {
+      console.log("here are the photos",props.userPhotos)
+      return (
+        <div className="user-container">
+          {props.userPhotos.map(photo => {
+            if (!photo.user) {
+              return(
+                <GalleryCard
+                  userID={0}
+                  firstName={"N/A"}
+                  lastName={"N/A"}
+                  profilePic={""}
+                  userImage={photo.imageurl}
+                  title={photo.title}
+                  description={photo.description}
+                />
+              )
+            }
+            else {
+              return(
+                <Link
+                key={photo.artid}
+                to={{
+                  pathname: `/user-list/${photo.user.userid}`,
+                  state: {
+                    userID: photo.user.userid,
+                    firstName: photo.user.firstname,
+                    lastName: photo.user.lastname,
+                    profilePic: photo.user.profilepicture,
+                    userImage: photo.imageurl,
+                    title: photo.title,
+                    description: photo.description,
+                    userPhotos: photo.userPhotos,
+                  }
+                }}
+              >
+                <GalleryCard
+                  userID={photo.user.userid}
+                  firstName={photo.user.firstname}
+                  lastName={photo.user.lastname}
+                  profilePic={photo.user.profilepicture}
+                  userImage={photo.imageurl}
+                  title={photo.title}
+                  description={photo.description}
+                />
+              </Link>
+              )
+              
+            }
+          }
+              
+              
+          )
+          }
+          {/* {users.map(user =>
+            user.arts.map(art => (
+              <Link
+                key={user.userid}
+                to={{
+                  pathname: `/user-list/${user.userid}`,
+                  state: {
+                    userID: user.userid,
+                    firstName: user.firstname,
+                    lastName: user.lastname,
+                    profilePic: user.profilepicture,
+                    userImage: art.imageurl,
+                    title: art.title,
+                    description: art.description,
+                    userPhotos: props.userPhotos,
+                  }
+                }}
+              >
+                <GalleryCard
+                  userID={user.userid}
+                  firstName={user.firstname}
+                  lastName={user.lastname}
+                  profilePic={user.profilepicture}
+                  userImage={art.imageurl}
+                  title={art.title}
+                  description={art.description}
+                />
+              </Link>
+            ))
+          )} */}
+        </div>
+      );
+    }
 
-    return (
-      <div className="user-container">
-        {users.map(user =>
-          user.arts.map(art => (
-            <Link
-              key={user.userid}
-              to={{
-                pathname: `/user-list/${user.userid}`,
-                state: {
-                  userID: user.userid,
-                  firstName: user.firstname,
-                  lastName: user.lastname,
-                  profilePic: user.profilepicture,
-                  userImage: art.imageurl,
-                  title: art.title,
-                  description: art.description,
-                  userPhotos: props.userPhotos,
-                }
-              }}
-            >
-              <GalleryCard
-                userID={user.userid}
-                firstName={user.firstname}
-                lastName={user.lastname}
-                profilePic={user.profilepicture}
-                userImage={art.imageurl}
-                title={art.title}
-                description={art.description}
-              />
-            </Link>
-          ))
-        )}
-      </div>
-    );
+    
 };
 
 
