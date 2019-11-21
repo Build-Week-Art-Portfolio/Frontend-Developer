@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import GalleryCard from "./GalleryCard";
 
 const GalleryList = () => {
+  console.log("Gallery List is displaying")
+  
   const [users, setUsers] = useState([]);
   useEffect(() => {
     axios

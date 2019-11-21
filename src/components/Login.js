@@ -38,7 +38,6 @@ const Login = (props) => {
             }
         )
         .then(response => {
-            console.log("response", response.data);
             sessionStorage.setItem("token", response.data.access_token);
             setLoggedInUser();
             // once token is handeled, navigate to profile page
