@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { axiosWithAuth } from "../axiosWithAuth";
 import { Link } from "react-router-dom";
 import GalleryCard from "./GalleryCard";
 
-const GalleryList = () => {
+const GalleryList = (props) => {
   console.log("Gallery List is displaying")
 
   const [users, setUsers] = useState([]);
+
+  console.log("Photos appear in the gallery",props.userPhotos);
 
   useEffect(() => {
     console.log("axios call is going out on mount")
@@ -38,7 +41,8 @@ const GalleryList = () => {
                   profilePic: user.profilepicture,
                   userImage: art.imageurl,
                   title: art.title,
-                  description: art.description
+                  description: art.description,
+                  userPhotos: props.userPhotos,
                 }
               }}
             >

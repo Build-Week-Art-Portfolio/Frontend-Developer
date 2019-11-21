@@ -21,6 +21,7 @@ export default function App() {
   useEffect(() => {
     axios.get("https://als-artportfolio.herokuapp.com/art/arts")
     .then(response => {
+      console.log("we got a response",response)
       setUserPhotos(response.data)
     });
   },[])

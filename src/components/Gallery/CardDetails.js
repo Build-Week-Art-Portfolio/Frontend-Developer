@@ -5,7 +5,7 @@ import axios from "axios";
 
 
 const CardDetails = props => {
-  console.log(props.location, "props")
+  console.log("Photos appear in the card details",props.location.state.userPhotos);
   const { firstName, lastName, profilePic, userImage, title, description} = props.location.state;
   return (
     <div className="photo-container">
