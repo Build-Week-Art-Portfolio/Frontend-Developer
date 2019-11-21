@@ -1,4 +1,5 @@
 import React from "react";
+import { arrayTypeAnnotation } from "@babel/types";
 
 const GalleryCard = props => {
   return (
@@ -8,8 +9,9 @@ const GalleryCard = props => {
         <p>{props.firstName}</p>
         <p>{props.lastName}</p>
       </div>
+      <h3>{props.title}</h3>
       <div className="user-img">
-        <img src="https://picsum.photos/400" alt="random image" />
+        <img src={props.userImage} alt="random image" />
       </div>
     </div>
   );

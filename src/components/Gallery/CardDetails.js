@@ -1,16 +1,18 @@
 import React from "react";
 
+
 const CardDetails = props => {
-  const { firstName, lastName, profilePic } = props.location.state;
+  console.log(props.location, "props")
+  const { firstName, lastName, profilePic, userImage, title, description} = props.location.state;
   return (
-    <div className="user-card">
-      <div className="user-head">
+    <div className="photo-card">
+      <div className="photo-head">
         <img className="user-avatar" src={profilePic} />
-        <p>{firstName}</p>
-        <p>{lastName}</p>
+        <h2>{title}</h2>
       </div>
       <div className="user-img">
-        <img src="https://picsum.photos/400" alt="random image" />
+        <img src={userImage} alt="user image" />
+        <p>{description}</p>
       </div>
     </div>
   );
