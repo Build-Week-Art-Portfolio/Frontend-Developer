@@ -8,9 +8,11 @@ import PrivateRoute from './components/PrivateRoute';
 import AddForm from "./components/AddForm";
 import Register from "./components/Register";
 import GalleryList from "./components/Gallery/GalleryList";
+import CardDetails from './components/Gallery/CardDetails';
 import GalleryCard from "./components/Gallery/GalleryCard";
-import CardDetails from "./components/Gallery/CardDetails";
-
+import Header from "./components/gallery/Header.js";
+import CharacterList from "./components/gallery/CharacterList";
+import Card from "./components/gallery/Card";
 
 export default function App() {
   const [userPhotos, setUserPhotos] = useState([
@@ -63,6 +65,7 @@ export default function App() {
   return (
     <Router>
       <div className="App">
+        <Header />
         <Route exact path="/" component={Login} />
         <Route exact path="/register" component={Register} />
         <PrivateRoute path="/profile-page">
@@ -98,6 +101,14 @@ export default function App() {
             return <AddForm />;
           }
         }} />
+        <Link to="/user-list">Gallery</Link>
+        <Link to="/">Login</Link>
+
+        <Route exact path="/user-list" component={GalleryList} />
+        <Route path="/user-list/:id" component={CardDetails} />
+    
+        <Route exact path="/character/" component={CharacterList}/>
+        <Route exact path="/character/:id" component={Card} />
       </div>
     </Router>
   );
