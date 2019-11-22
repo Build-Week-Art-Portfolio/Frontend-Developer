@@ -20,3 +20,72 @@
 .App-link {
   color: #09d3ac;
 }
+
+/* 
+Styles for the Gallery
+*/
+
+.user-container {
+  font-family: 'Kodchasan', sans-serif;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+.user-container a {
+  text-decoration: none;
+  color: black;
+  width: 33%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+}
+
+.user-card {
+  margin: 10px 10px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-head {
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-around;
+}
+.user-name{
+  display: flex;
+}
+
+.user-avatar {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px;
+  margin-top: 10px;
+}
+
+.user-img img {
+  width: 80%;
+  max-width: 100%;
+  height: 40vh;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px;
+}
+
+/* Styles for CardDetails*/
+.photo-container{
+  font-family: 'Kodchasan', sans-serif;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid slategray;
+  border-radius: 10px;
+  width: 60%;
+  margin: 50px auto;
+  background: lightgray;
+  box-shadow: 0 0 10px;
+}
