@@ -4,7 +4,6 @@ const initialState = {
 }
 
 function reducer(state = initialState, action) {
-    console.log("reducer:", action);
     switch(action.type) {
         case "SET_LOGGED":
             return {

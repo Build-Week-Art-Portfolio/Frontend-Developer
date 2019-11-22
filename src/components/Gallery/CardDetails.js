@@ -9,7 +9,6 @@ const CardDetails = props => {
   const deleteArt = () => {
     axios.delete(`https://als-artportfolio.herokuapp.com/art/art/${artid}`)
     .then(response => {
-        console.log(response);
         props.history.push("/");
     })
     .catch(error => {

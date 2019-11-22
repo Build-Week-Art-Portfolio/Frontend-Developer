@@ -49,7 +49,6 @@ export default function App() {
         <PrivateRoute path="/profile-page">
           <Route exact path="/profile-page" component={ProfilePage} />
         </PrivateRoute>
-        <Link to="/">Gallery</Link>
         <Route
           exact
           path="/"
@@ -82,8 +81,8 @@ export default function App() {
         <Link to="/">Gallery</Link>
         <Link to="/">Login</Link>
 
-        <Route exact path="/user-list" component={GalleryList} />
-        <Route path="/user-list/:id" component={CardDetails} />
+        <Route exact path="/art-list" component={GalleryList} />
+        <Route path="/art-list/:id" component={CardDetails} />
     
         <Route exact path="/character/" component={CharacterList}/>
         <Route exact path="/character/:id" component={Card} />
