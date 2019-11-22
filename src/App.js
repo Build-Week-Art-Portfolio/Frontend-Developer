@@ -26,6 +26,20 @@ export default function App() {
     });
   },[])
 
+  useEffect(() => { 
+    // TODO: Add API Request here - must run in `useEffect`
+    //  Important: verify the 2nd `useEffect` 
+    //  parameter: the dependancies array!
+    axios.
+        get('http://als-artportfolio.herokuapp.com/users/users/')
+        .then(response => {
+            console.log("Got a list of users", response);
+        })
+        .catch(err => {
+          console.log("Can't get a list of users",err)
+        })
+    }, []);
+
   return (
     <Router>
       <div className="App">
