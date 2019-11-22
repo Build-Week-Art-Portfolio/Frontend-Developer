@@ -11,9 +11,9 @@ import Register from "./components/Register";
 import GalleryList from "./components/Gallery/GalleryList";
 import CardDetails from './components/Gallery/CardDetails';
 import GalleryCard from "./components/Gallery/GalleryCard";
-import Header from "./components/Gallery/Header.js";
+import Header from "./components/Header.js";
 import CharacterList from "./components/CharacterList";
-import Card from "./components/Gallery/Card";
+import Card from "./components/Card";
 
 export default function App() {
   const [userPhotos, setUserPhotos] = useState([]);
