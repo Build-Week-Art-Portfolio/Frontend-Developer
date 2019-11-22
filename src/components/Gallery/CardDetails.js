@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
-import GalleryCard from "./GalleryCard";
-import GalleryList from "./GalleryList";
 import axios from "axios";
+import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
 const CardDetails = props => {
   const { firstName, lastName, profilePic, userImage, title, description, artid} = props.location.state;
+  const Dispatch = useDispatch();
 
   const deleteArt = () => {
     axios.delete(`https://als-artportfolio.herokuapp.com/art/art/${artid}`)
     .then(response => {
-        console.log(response);
         props.history.push("/");
+        Dispatch({ type: "UPDATE"});
     })
     .catch(error => {
         console.log(error);
@@ -32,4 +33,11 @@ const CardDetails = props => {
   );
 };
 
-export default CardDetails;
+const mapStateToProps = state => ({
+  updates: state.updates,
+});
+
+
+export default connect(
+  mapStateToProps,
+)(CardDetails);

@@ -10,7 +10,7 @@ const Card = (props) => {
         // You will NEED to add a dependency array to this effect hook
         
         axios
-            .get(`http://als-artportfolio.herokuapp.com/users/user/${id}`)
+            .get(`https://als-artportfolio.herokuapp.com/users/user/${id}`)
             .then(response => {
                 setCharacter(response.data);
             })

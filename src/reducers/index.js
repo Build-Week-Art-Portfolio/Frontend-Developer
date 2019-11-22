@@ -1,10 +1,10 @@
 const initialState = {
     loggedInUser: sessionStorage.getItem('logged-user'),
     userID: sessionStorage.getItem('user-id'),
+    updates: 0,
 }
 
 function reducer(state = initialState, action) {
-    console.log("reducer:", action);
     switch(action.type) {
         case "SET_LOGGED":
             return {
@@ -16,6 +16,11 @@ function reducer(state = initialState, action) {
                     ...state,
                     userID: action.payload,
                 };
+        case "UPDATE":
+        return {
+            ...state,
+            updates: (state.updates + 1),
+        };
         default:
             return state;
     }

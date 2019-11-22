@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function CharacterCard(props) {
-    console.log("DATA");
-    console.log(props.character);
     return (
         <div className="characterCard" key={props.character.userid}>
             <Link to={`/character/${props.character.userid}`}>

@@ -1,18 +1,6 @@
 import React from "react";
-import axios from 'axios';
-
-const deleteArt = artid => {
-  axios.delete(`https://als-artportfolio.herokuapp.com/art/art/${artid}`)
-  .then(response => {
-      console.log(response);
-  })
-  .catch(error => {
-      console.log(error);
-  })
-}
 
 const GalleryCard = props => {
-  console.log("these are this card's props", props.artid)
   return (
     <div className="user-card">
       <div className="user-head">
