@@ -42,6 +42,7 @@ const Login = (props) => {
             setLoggedInUser();
             // once token is handeled, navigate to profile page
             props.history.push("/profile-page");
+            Dispatch({ type: "UPDATE"});
         })
         .catch(err => {
             console.log("there was an error");
@@ -60,13 +61,14 @@ const Login = (props) => {
         } else {
         setLogged(false);
         }
-    },[]);
+    },[props.updates]);
 
     return (
     <div className="home-page">
         <h1>Welcome to the Art Portfolio</h1>
+        {!isLoggedIn ? 
         <div className="login-form">
-            <h2>{isLoggedIn ? "LOGGED IN!" : "Please login"}</h2>
+            <h2>Please login to post art</h2>
             <form>
                 <div className="input-div">
                     <label htmlFor="username">Username:</label>
@@ -91,12 +93,14 @@ const Login = (props) => {
                 <button onClick={goToSignUp} className="postButton">Create Account</button>
             </form>
         </div>
+        : <div><br /><br /><br /></div> }
     </div>
     );
 }
 
 const mapStateToProps = state => ({
     loggedInUser: state.loggedInUser,
+    updates: state.updates,
   });
 
 
