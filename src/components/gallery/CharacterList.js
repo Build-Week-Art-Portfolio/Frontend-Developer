@@ -10,13 +10,10 @@ export default function CharacterList() {
         //  Important: verify the 2nd `useEffect` 
         //  parameter: the dependancies array!
         axios.
-            get('https://als-artportfolio.herokuapp.com/users/users/')
+            get('http://als-artportfolio.herokuapp.com/users/users/')
             .then(response => {
-                console.log("got a list of users", response.data);
+                console.log("calling items");
                 setItems(response.data);
-            })
-            .catch(err => {
-                console.log("Can't get a list of users",err)
             })
     }, []);
 

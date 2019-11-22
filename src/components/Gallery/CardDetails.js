@@ -3,10 +3,20 @@ import GalleryCard from "./GalleryCard";
 import GalleryList from "./GalleryList";
 import axios from "axios";
 
-
 const CardDetails = props => {
-  console.log(props.location, "props")
-  const { firstName, lastName, profilePic, userImage, title, description} = props.location.state;
+  const { firstName, lastName, profilePic, userImage, title, description, artid} = props.location.state;
+
+  const deleteArt = () => {
+    axios.delete(`https://als-artportfolio.herokuapp.com/art/art/${artid}`)
+    .then(response => {
+        console.log(response);
+        props.history.push("/");
+    })
+    .catch(error => {
+        console.log(error);
+    })
+  }
+
   return (
     <div className="photo-container">
       <div className="photo-head">
@@ -17,6 +27,7 @@ const CardDetails = props => {
         <img src={userImage} alt="user image" />
         <p>{description}</p>
       </div>
+      <button onClick={() => deleteArt()}>Delete</button>
     </div>
   );
 };

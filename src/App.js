@@ -12,7 +12,7 @@ import GalleryList from "./components/Gallery/GalleryList";
 import CardDetails from './components/Gallery/CardDetails';
 import GalleryCard from "./components/Gallery/GalleryCard";
 import Header from "./components/Gallery/Header.js";
-import CharacterList from "./components/Gallery/CharacterList";
+import CharacterList from "./components/CharacterList";
 import Card from "./components/Gallery/Card";
 
 export default function App() {
@@ -21,10 +21,24 @@ export default function App() {
   useEffect(() => {
     axios.get("https://als-artportfolio.herokuapp.com/art/arts")
     .then(response => {
-      console.log(response)
+      console.log("we got a response",response)
       setUserPhotos(response.data)
     });
   },[])
+
+  useEffect(() => { 
+    // TODO: Add API Request here - must run in `useEffect`
+    //  Important: verify the 2nd `useEffect` 
+    //  parameter: the dependancies array!
+    axios.
+        get('https://als-artportfolio.herokuapp.com/users/users/')
+        .then(response => {
+            console.log("Got a list of users", response);
+        })
+        .catch(err => {
+          console.log("Can't get a list of users",err)
+        })
+    }, []);
 
   return (
     <Router>
@@ -65,7 +79,7 @@ export default function App() {
             return <AddForm />;
           }
         }} />
-        <Link to="/user-list">Gallery</Link>
+        <Link to="/">Gallery</Link>
         <Link to="/">Login</Link>
 
         <Route exact path="/user-list" component={GalleryList} />
