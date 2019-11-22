@@ -61,7 +61,7 @@ const GalleryList = (props) => {
                     userImage: photo.imageurl,
                     title: photo.title,
                     description: photo.description,
-                    userPhotos: photo.userPhotos,
+                    artid: photo.artid,
                   }
                 }}
               >

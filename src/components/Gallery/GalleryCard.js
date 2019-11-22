@@ -26,7 +26,7 @@ const GalleryCard = props => {
       <div className="user-img">
         <img src={props.userImage} alt="random image" />
       </div>
-      <button onClick={() => deleteArt(props.artid)}>Delete</button>
+      
     </div>
   );
 };
