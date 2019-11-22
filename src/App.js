@@ -12,7 +12,7 @@ import GalleryList from "./components/Gallery/GalleryList";
 import CardDetails from './components/Gallery/CardDetails';
 import GalleryCard from "./components/Gallery/GalleryCard";
 import Header from "./components/Gallery/Header.js";
-import CharacterList from "./components/Gallery/CharacterList";
+import CharacterList from "./components/CharacterList";
 import Card from "./components/Gallery/Card";
 
 export default function App() {
