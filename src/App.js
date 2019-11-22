@@ -31,7 +31,7 @@ export default function App() {
     //  Important: verify the 2nd `useEffect` 
     //  parameter: the dependancies array!
     axios.
-        get('http://als-artportfolio.herokuapp.com/users/users/')
+        get('https://als-artportfolio.herokuapp.com/users/users/')
         .then(response => {
             console.log("Got a list of users", response);
         })

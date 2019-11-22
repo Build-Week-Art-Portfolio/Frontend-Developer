@@ -10,7 +10,7 @@ export default function CharacterList() {
         //  Important: verify the 2nd `useEffect` 
         //  parameter: the dependancies array!
         axios.
-            get('http://als-artportfolio.herokuapp.com/users/users/')
+            get('https://als-artportfolio.herokuapp.com/users/users/')
             .then(response => {
                 console.log("calling items");
                 setItems(response.data);
