@@ -39,7 +39,6 @@ const ProfilePage = (props) => {
     const getProfileData = () => {
         axiosWithAuth().get(`https://als-artportfolio.herokuapp.com/users/users/`)
         .then(response => {
-            console.log(response);
 
             // matches the proper user from the list of users and narrows down the info to that one user
             const userInfo = response.data.filter(function (user) {return user.username === props.loggedInUser})[0];
@@ -84,20 +83,21 @@ const ProfilePage = (props) => {
 
     // deletion of account
     const deleteProfile = () => {
-        clearLoggedInUser();
-        updateID("");
 
         // Delete request for profile
         axiosWithAuth().delete(`https://als-artportfolio.herokuapp.com/users/user/${props.userID}`)
             .then(response => {
                 console.log(response);
+
+                // Return to home page
+                props.history.push("/");
             })
             .catch(error => {
                 console.log(error);
             })
-        
-        // Return to home page
-        props.history.push("/");
+
+        clearLoggedInUser();
+        updateID("");
     }
 
     // toggles edit functionality

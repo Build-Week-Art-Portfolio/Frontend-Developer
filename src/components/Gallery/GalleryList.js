@@ -28,52 +28,36 @@ const GalleryList = (props) => {
         <div className="user-container">
           {/* new .map code that iterates over the art list in order to obatin the art ID to get the deletion process to work */}
           {props.userPhotos.map(photo => {
-            if (!photo.user) {
-              return(
-                <GalleryCard
-                  userID={0}
-                  firstName={"N/A"}
-                  lastName={"N/A"}
-                  profilePic={""}
-                  userImage={photo.imageurl}
-                  title={photo.title}
-                  description={photo.description}
-                  artid={photo.artid}
-                />
-              )
-            }
-            else {
-              return(
-                <Link
-                key={photo.artid}
-                to={{
-                  pathname: `/art-list/${photo.user.userid}`,
-                  state: {
-                    userID: photo.user.userid,
-                    firstName: photo.user.firstname,
-                    lastName: photo.user.lastname,
-                    profilePic: photo.user.profilepicture,
-                    userImage: photo.imageurl,
-                    title: photo.title,
-                    description: photo.description,
-                    artid: photo.artid,
-                  }
-                }}
-              >
-                <GalleryCard
-                  userID={photo.user.userid}
-                  firstName={photo.user.firstname}
-                  lastName={photo.user.lastname}
-                  profilePic={photo.user.profilepicture}
-                  userImage={photo.imageurl}
-                  title={photo.title}
-                  description={photo.description}
-                  artid={photo.artid}
-                />
+            return(
+              <Link
+              key={photo.artid}
+              to={{
+                pathname: `/art-list/${photo.user.userid}`,
+                state: {
+                  userID: photo.user.userid,
+                  firstName: photo.user.firstname,
+                  lastName: photo.user.lastname,
+                  profilePic: photo.user.profilepicture,
+                  userImage: photo.imageurl,
+                  title: photo.title,
+                  description: photo.description,
+                  artid: photo.artid,
+                }
+              }}
+            >
+              <GalleryCard
+                userID={photo.user.userid}
+                firstName={photo.user.firstname}
+                lastName={photo.user.lastname}
+                profilePic={photo.user.profilepicture}
+                userImage={photo.imageurl}
+                title={photo.title}
+                description={photo.description}
+                artid={photo.artid}
+              />
               </Link>
               )
               
-            }
           }
               
               

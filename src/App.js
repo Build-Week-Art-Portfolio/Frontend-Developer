@@ -14,8 +14,9 @@ import GalleryCard from "./components/Gallery/GalleryCard";
 import Header from "./components/Header.js";
 import CharacterList from "./components/CharacterList";
 import Card from "./components/Card";
+import { connect } from 'react-redux';
 
-export default function App() {
+function App(props) {
   const [userPhotos, setUserPhotos] = useState([]);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ export default function App() {
       console.log("we got a response",response)
       setUserPhotos(response.data)
     });
-  },[])
+  },[props.updates])
 
   useEffect(() => { 
     // TODO: Add API Request here - must run in `useEffect`
@@ -43,7 +44,7 @@ export default function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
+        <Route path="/" component={Header} />
         <Route exact path="/" component={Login} />
         <Route exact path="/register" component={Register} />
         <PrivateRoute path="/profile-page">
@@ -67,26 +68,33 @@ export default function App() {
             }
           }}
         />
-         
+
+        <Route exact path="/art-list" component={GalleryList} />
+        <Route path="/art-list/:id" component={CardDetails} />
+        <Route exact path="/character/" component={CharacterList}/>
+        <Route exact path="/character/:id" component={Card} />
+
         <Route exact path="/photo-data/:id" component={GalleryCard} />
 
-        <Route
+        <Route 
         exact
         path="/AddForm"
         render={props => {
           {
-            return <AddForm />;
+            return <AddForm {...props} />;
           }
-        }} />
-        <Link to="/">Gallery</Link>
-        <Link to="/">Login</Link>
+        }} 
+        />
 
-        <Route exact path="/art-list" component={GalleryList} />
-        <Route path="/art-list/:id" component={CardDetails} />
-    
-        <Route exact path="/character/" component={CharacterList}/>
-        <Route exact path="/character/:id" component={Card} />
       </div>
     </Router>
   );
 }
+
+const mapStateToProps = state => ({
+  updates: state.updates,
+});
+
+export default connect(
+  mapStateToProps,
+)(App);
