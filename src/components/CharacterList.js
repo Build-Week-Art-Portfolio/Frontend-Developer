@@ -12,8 +12,11 @@ export default function CharacterList() {
         axios.
             get('https://als-artportfolio.herokuapp.com/users/users/')
             .then(response => {
-                console.log("calling items");
+                console.log("got a list of users", response.data);
                 setItems(response.data);
+            })
+            .catch(err => {
+                console.log("Can't get a list of users",err)
             })
     }, []);
 
