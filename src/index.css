@@ -27,8 +27,8 @@ main {
 
 .postButton {
   text-align: center;
-  margin: 25px 0;
-  min-width: 75px;
+  margin: 25px auto;
+  width: 150px;
   height: 25px;
   border: 1px solid rgb(241, 241, 241);
   font-size: 0.8rem;
@@ -72,6 +72,16 @@ header h1 {
 
 .regFormStyles label {
   padding: 0 35px 0 0;
+}
+
+.titleStyles {
+  border: none;
+  background: rgb(222, 226, 236);
+  width: 500px;
+  height: 50px;
+  font-size: 1.5rem;
+  font-style: bold;
+  margin: 25px 0;
 }
 
 .titleStyles2 {

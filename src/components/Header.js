@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
 
 
-export default function Header(props) {
+function Header(props) {
     console.log("header props", props.history)
     const Dispatch = useDispatch();
+    const [isLoggedIn, setLogged] = useState(false);
 
     const updateID = (id) => {
         sessionStorage.setItem("user-id",id);
@@ -26,6 +28,14 @@ export default function Header(props) {
         Dispatch({ type: "UPDATE"});
     }
 
+    useEffect(() => {
+        if (sessionStorage.getItem("token")) {
+        setLogged(true);
+        } else {
+        setLogged(false);
+        }
+    },[props.updates]);
+
 
 
     return (
@@ -34,8 +44,17 @@ export default function Header(props) {
             <Link to="/">Gallery</Link>
             <a href="https://nifty-edison-39c663.netlify.com/about.html">About Us</a>
             <Link to="/character">Users</Link>
-            <Link to="profile-page">Profile</Link>
-            <a onClick={() => LogOut()} className="log-out">Log Out</a>
+            <Link to="profile-page">{isLoggedIn ? "Profile" : ""}</Link>
+            <a onClick={() => LogOut()} className="log-out">{isLoggedIn ? "Log Out" : ""}</a>
         </div>
     );
 }
+
+const mapStateToProps = state => ({
+    updates: state.updates,
+  });
+
+
+export default connect(
+    mapStateToProps,
+)(Header);
